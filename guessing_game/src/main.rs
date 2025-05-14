@@ -1,15 +1,20 @@
-use std::io;
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
 
 fn main() {
-    println!("Guess the number!");
+    let rect1 = Rectangle { width: 30, height: 50 };
 
-    println!("Please input your guess.");
-
-    let mut guess = String::new();
-
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
-
-    println!("You guessed: {}", guess);
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rect1.area()
+    );
 }
